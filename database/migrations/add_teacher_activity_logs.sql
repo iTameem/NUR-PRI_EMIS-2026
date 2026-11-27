@@ -1,0 +1,20 @@
+CREATE TABLE teacher_activity_logs (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    teacher_id BIGINT UNSIGNED NOT NULL,
+    teacher_name VARCHAR(150) NOT NULL,
+    event_type ENUM('login', 'score_upload') NOT NULL,
+    ip_address VARCHAR(45) NULL,
+    user_agent VARCHAR(512) NOT NULL DEFAULT '',
+    class_id BIGINT UNSIGNED NULL,
+    subject_id BIGINT UNSIGNED NULL,
+    term_id BIGINT UNSIGNED NULL,
+    class_name VARCHAR(100) NULL,
+    subject_name VARCHAR(150) NULL,
+    term_name VARCHAR(100) NULL,
+    session_name VARCHAR(50) NULL,
+    student_entry_count INT UNSIGNED NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY idx_teacher_activity_type_created (event_type, created_at),
+    KEY idx_teacher_activity_teacher_type_created (teacher_id, event_type, created_at)
+) ENGINE=InnoDB;

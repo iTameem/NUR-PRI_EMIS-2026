@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@source "../../admin";
+@source "../../auth";
+@source "../../teacher";
+@source "../../index.php";
+
+@layer components {
+    .admin-dashboard {
+        background-color: #f7f9fc;
+        background-image:
+            radial-gradient(ellipse at 82% 0%, rgb(16 185 129 / 0.06), transparent 34rem),
+            radial-gradient(ellipse at 5% 38%, rgb(14 165 233 / 0.035), transparent 30rem);
+        background-attachment: fixed;
+    }
+
+    .admin-dashboard :is(input:not([type="hidden"]), select, textarea) {
+        border-color: #dbe3ec;
+        border-radius: 0.8rem;
+        background-color: #fff;
+        color: #0f172a;
+        transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .admin-dashboard :is(input:not([type="hidden"]), select, textarea):focus {
+        border-color: #10b981;
+        outline: 2px solid transparent;
+        box-shadow: 0 0 0 4px rgb(16 185 129 / 0.12);
+    }
+
+    .admin-dashboard main section.rounded-2xl.border {
+        border-color: rgb(226 232 240 / 0.9);
+        box-shadow: 0 8px 24px -18px rgb(15 23 42 / 0.28);
+    }
+
+    .admin-dashboard main table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .admin-dashboard main table thead th {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+    }
+
+    .admin-dashboard main table tbody tr {
+        transition: background-color 140ms ease;
+    }
+
+    .admin-dashboard main form button {
+        transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    }
+
+    .admin-dashboard main form button:hover {
+        box-shadow: 0 6px 14px -8px rgb(15 23 42 / 0.35);
+    }
+
+    .admin-stat-card {
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .admin-stat-card:hover {
+        transform: translateY(-2px);
+        border-color: rgb(16 185 129 / 0.3);
+        box-shadow: 0 16px 28px -20px rgb(15 23 42 / 0.32);
+    }
+}
